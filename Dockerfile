@@ -12,8 +12,11 @@ RUN gem install bundler
 RUN gem install tzinfo -v 0.3.22
 RUN gem install vines
 RUN vines init localhost
-RUN mv /localhost/data/user/alice@localhost /localhost/data/user/auction-item-54321@localhost
-RUN mv /localhost/data/user/arthur@localhost /localhost/data/user/sniper@localhost
+RUN rm /localhost/data/user/alice@localhost
+RUN cp /localhost/data/user/arthur@localhost /localhost/data/user/sniper@localhost
+RUN cp /localhost/data/user/arthur@localhost /localhost/data/user/auction-item-54321@localhost
+RUN cp /localhost/data/user/arthur@localhost /localhost/data/user/auction-item-65432@localhost
+RUN rm /localhost/data/user/arthur@localhost
 EXPOSE 5222 
 WORKDIR /localhost
 CMD vines start
